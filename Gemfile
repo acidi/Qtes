@@ -1,10 +1,16 @@
 source "http://rubygems.org"
 
-# Sinatra 1.x and Haml 3.x are fine.
-gem "sinatra", "~>1.1"
-gem "haml", "~>3.0"
+gem "sinatra"
 gem "data_mapper"
-gem "dm-sqlite-adapter"
+gem "haml"
 gem "rack-flash"
-gem "heroku"
-gem "rack"
+
+group :production do
+  gem "dm-postgres-adapter"
+end
+
+group :development do
+  gem "dm-sqlite-adapter"
+  gem "thin"
+  gem "heroku"
+end
