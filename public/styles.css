@@ -1,0 +1,63 @@
+
+ul.horizontal, ol.horizontal, .horizontal li {
+  display: inline;
+}
+
+body {
+  font: Arial,sans-serif;
+}
+
+.error {
+  border: 1px solid red;
+  color: red;
+}
+
+.success {
+  border: 1px solid green;
+  color: green;
+}
+
+#header {
+  background: #0489B1;
+  overflow: hidden;
+}
+#header li{
+  float: left;
+  width: auto;
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  line-height: 27px;
+}
+
+#header li a,li a:link{
+  padding: 0 5px;
+  text-decoration: none;
+  display: block;
+  color: black;
+  border-top: 2px solid transparent;
+}
+
+#header li a:hover{
+  background: white;
+}
+
+#header li a.current{
+  font-weight: bold;
+  border-top-color: #DD4B39;
+}
+#meat {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50em;
+}
+#quote {
+  border-style: solid;
+  border-color: #E0F2F7;
+  background: #CEE3F6;
+  border-radius: 1em;
+}
+#quote a:link, a:visited{
+  color: black;
+  font-weight: bolder;
+}

@@ -1,0 +1,14 @@
+
+%h1 Add quote
+
+%form{:action => "/qte", :method => "post"}
+  %legend channel + quote:
+  %p
+    %strong #
+    %label{:for => "kanava"}
+    %input{:type => "text", :name => "kanava", :id => "kanava"}
+  %p
+    %label{:for => "quote"}
+    %textarea{:name => "quote", :cols => 40, :rows => 6}
+  %p
+    %input{:type => "submit", :value => "submit"}

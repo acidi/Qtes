@@ -1,0 +1,8 @@
+%h4 Delete user #{@user_to_delete.name}
+
+%form{:action => "/user/#{@user_to_delete.name}/delete", :method => "post"}
+  %legend U sure?
+  %p
+    %input{:type => "submit", :value => "Delete"}
+    %a{:href => "/"} Cancel
+

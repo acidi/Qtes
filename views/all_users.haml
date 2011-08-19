@@ -1,0 +1,6 @@
+%p
+%h1 All users
+- @all_users.each do |user|
+  %p
+  %a{:href => "/user/#{user.name}/delete"} #{user.name}
+

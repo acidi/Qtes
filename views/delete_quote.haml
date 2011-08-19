@@ -1,0 +1,8 @@
+%h4 Remove quote
+
+%form{:action => "/qte/#{@qute.id}/delete", :method => "post"}
+  %legend U sure?
+  %p
+    %input{:type => "submit", :value => "Delete"}
+    %a{:href => "/"} Cancel
+

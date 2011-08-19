@@ -1,0 +1,12 @@
+%h1 Sign up
+
+%form{:action => "/user/new", :method => "post"}
+  %legend username/password:
+  %p
+    %label{:for => "name"}
+    %input{:type => "text", :name => "name", :id => "name"}
+  %p
+    %labe{:for => "password"}
+    %input{:type => "password", :name => "password", :id => "password"}
+  %p
+    %input{:type => "submit", :value => "submit"}
