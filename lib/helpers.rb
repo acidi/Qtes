@@ -1,11 +1,6 @@
-helpers do
 
   include Rack::Utils
-  alias_method :r, :escape_html
-
-  if !User.exists?("admin")
-    User.create(:name => "admin", :password => Digest::SHA1.hexdigest("admin"), :admin => true)
-  end
+  
 
   def validate(username, password)
     @user = User.first(:name => username, :password => Digest::SHA1.hexdigest(password))
@@ -62,4 +57,5 @@ helpers do
       end
      end
   end
-end
+
+
