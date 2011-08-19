@@ -5,6 +5,7 @@ require 'haml'
 require 'data_mapper'
 require 'rack-flash'
 require './models'
+require 'rack'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
