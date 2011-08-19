@@ -14,7 +14,7 @@ require './lib/helpers'
 enable :sessions
 use Rack::Flash
 
-class Tsoha
+class Tsoha < Sinatra::Application
 
 get '/' do
   @all_quotes = Quote.all(:order => [:points.desc])
