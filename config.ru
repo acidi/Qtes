@@ -1,0 +1,5 @@
+require 'main'
+
+run Tsoha
+
+
