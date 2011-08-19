@@ -14,6 +14,8 @@ require './lib/helpers'
 enable :sessions
 use Rack::Flash
 
+class Tsoha
+
 get '/' do
   @all_quotes = Quote.all(:order => [:points.desc])
   haml :index
@@ -162,4 +164,6 @@ get '/logout' do
   clear_session
   flash[:success] = "You have now logged out."
   redirect '/'
+end
+
 end
