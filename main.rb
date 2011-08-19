@@ -5,10 +5,11 @@ require 'haml'
 require 'data_mapper'
 require 'rack-flash'
 require './models'
-require './lib/helpers'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
+
+require './lib/helpers'
 
 enable :sessions
 use Rack::Flash
@@ -94,8 +95,7 @@ end
 
 post '/qte/:id/upvote' do
   @q = Quote.get( params[:id] )
-  @temp = @q.points + 1
-  @q.points = @temp
+  @q.points += 1
   if @q.save
     Voter.create(:voter_name => session["username"], :quote => @q)
     flash[:success] = "upvoted!"
@@ -108,8 +108,7 @@ end
 
 post '/qte/:id/downvote' do
   @q = Quote.get( params[:id] )
-  @temp = @q.points - 1
-  @q.points = @temp
+  @q.points -= 1
   if @q.save
     Voter.create(:voter_name => session["username"], :quote => @q)
     flash[:success] = "downvoted!"

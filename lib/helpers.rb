@@ -22,7 +22,7 @@ helpers do
     if !is_logged_in?
       return false
     else
-      return User.first(:name => session["username"]).admin
+      return User.get(session["username"]).admin
     end
   end
   
@@ -43,7 +43,7 @@ helpers do
   end
   
   def is_users_quote?(quote_id)
-    return Quote.first(:id => quote_id).posted_by == session["username"]
+    return Quote.get(quote_id).posted_by == session["username"]
   end
 
   def has_voted?(quote_id)
