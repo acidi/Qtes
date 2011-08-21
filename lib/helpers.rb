@@ -9,6 +9,11 @@
 
   def escape_quote(quote)
     @temp = quote
+    @temp.chomp!
+    @temp.gsub!(/(\r\n)*^/, '') #Tyhjät rivit pois alusta
+    @temp.gsub!(/(\r\n)*$/, '') #Sama lopusta
+    @temp.gsub!("<", "&lt;")
+    @temp.gsub!(">", "&gt;")
     @temp.gsub!("\r\n", "<br/>")
     return @temp
   end
@@ -37,8 +42,8 @@
     end
   end
   
-  def is_users_quote?(quote_id)
-    return Quote.get(quote_id).posted_by == session["username"]
+  def is_users_quote?(id)
+      return Quote.get(id).posted_by == session["username"]
   end
 
   def has_voted?(quote_id)

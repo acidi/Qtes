@@ -139,7 +139,7 @@ class Tsoha < Sinatra::Base
   end
 
   get '/qte/:id/delete' do
-    if is_admin? || is_users_quote?(:id)
+    if is_admin? || is_users_quote?(params[:id])
       @qute = Quote.get(params[:id])
       haml :delete_quote
     else
