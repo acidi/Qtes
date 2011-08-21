@@ -10,7 +10,7 @@
   def escape_quote(quote)
     @temp = quote
     @temp.chomp!
-    @temp.gsub!(/(\r\n)*^/, '') #Tyhjät rivit pois alusta
+    @temp.gsub!(/^(\r\n)*/, '') #Tyhjät rivit pois alusta
     @temp.gsub!(/(\r\n)*$/, '') #Sama lopusta
     @temp.gsub!("<", "&lt;")
     @temp.gsub!(">", "&gt;")
