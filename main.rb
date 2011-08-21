@@ -18,13 +18,21 @@ class Tsoha < Sinatra::Base
   enable :sessions
   use Rack::Flash
 
+
   if !User.exists?("admin")
     User.create(:name => "admin", :password => Digest::SHA1.hexdigest("admin"), :admin => true)
   end
 
+  @@sort_by_pop = true
+
   get '/' do
-    @all_quotes = Quote.all(:order => [:points.desc])
-    haml :index
+    if @@sort_by_pop
+      @all_quotes = Quote.all(:order => [:points.desc])
+      haml :index
+    else
+      @all_quotes = Quote.all(:order => [:created_at.desc])
+      haml :index
+    end
   end
 
   get '/about' do
@@ -164,6 +172,16 @@ class Tsoha < Sinatra::Base
       flash[:error] = "Wrong username or password!"
       haml :login
     end
+  end
+
+  post '/sort/pop' do
+  @@sort_by_pop = true
+  redirect '/'
+  end
+
+  post '/sort/time' do
+  @@sort_by_pop = false
+  redirect '/'
   end
 
   get '/logout' do

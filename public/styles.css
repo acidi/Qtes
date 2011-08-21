@@ -46,6 +46,29 @@ body {
   font-weight: bold;
   border-top-color: #DD4B39;
 }
+
+#sort_bar{
+background: #E0F2F7;
+line-height: 10px;
+}
+
+#sort_bar strong{
+color: black;
+font-size: 12px;
+}
+#sort_bar input{
+color:black;
+padding:0px;
+font-size:12px;
+font-family:Calibri, Arial, Helvetica, sans-serif;
+background:none;
+border:none;
+display:block;
+text-decoration:none;
+cursor:pointer;
+float: left;
+}
+
 #meat {
   margin-left: auto;
   margin-right: auto;

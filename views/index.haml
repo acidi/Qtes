@@ -1,4 +1,18 @@
 %p
+%div{:id => "sort_bar"}
+  %table{:border => "0"}
+    %tr
+    %td
+      %strong sort by:
+    %td
+      %form{:action => "/sort/pop", :method => "post",}
+        %label{:for => "submit"}
+        %input{:type => "submit", :value => "popularity",}
+    %td  
+      %form{:action => "/sort/time", :method => "post",}
+        %label{:for => "submit"}
+        %input{:type => "submit", :value => "time",}
+%p
 - @all_quotes.each do |quote|
   %div{:id => "quote"}
     %table{:border => "0"}
